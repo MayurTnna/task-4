@@ -1,13 +1,13 @@
 const productDetail = [
   {
     id: "p1",
-    price: 126,
+    price: 6.00,
     title: "Man Perfume",
     description: "Denver - Hamilton",
   },
   {
     id: "p2",
-    price: 125,
+    price: 5.00,
     title: "Man Deo",
     description: "Navia - 24 hours refreshment",
   },

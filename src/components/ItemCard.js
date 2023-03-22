@@ -3,34 +3,41 @@ import productDetail from '../productDetail';
 import { Button, Card } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addItemToCart} from "../redux/action/action";
+import "../assets/scss/main.scss"
 
 function ItemCard() {
     const dispatch = useDispatch()
   return (
      <>
-     <div>
+     
      {productDetail && productDetail.map((item) => 
+     <div className='itemCard_container'>
+     
       <Card
-        style={{ width: "28rem", height: "9rem", margin: "auto" }}
-        className="my-3"
+      className="my-3 item_card "
         key={item.id}
       >
         <Card.Body>
-          <Card.Title className="title">
+          <Card.Title className='float-start' >
             {item.title}
-            <div className="price">
+            </Card.Title>
+            <div className="price float-end">
               <h6>${item.price}</h6>
             </div>
-          </Card.Title>
+          
           <Card.Subtitle
-            className="mb-2 text-muted"
-            style={{ paddingTop: "10px" }}
-          >
+            className=" text-muted"
+            style={{ paddingTop: "70px", }}
+            >
+              <div className='float-start'>
             {item.description}
+            </div>
           </Card.Subtitle>
           <Button
             className="float-end"
+            variant="outline-primary"
             onClick={() => {
+              // console.log(item)
               dispatch(addItemToCart(item));
             }}
           >
@@ -38,8 +45,11 @@ function ItemCard() {
           </Button>
         </Card.Body>
       </Card>
+      </div>
+ 
+   
       )}
-    </div>
+  
     </>
   )
 }

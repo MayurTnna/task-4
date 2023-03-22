@@ -2,7 +2,7 @@ import * as types from "../actionType"
 
 const initialState = {
     total: 0,
-    data: []
+    data: [],
 }
 
 const postReducer = (state = initialState, action) => {
@@ -12,17 +12,21 @@ const postReducer = (state = initialState, action) => {
         (item) => item.id === action.payload.id);
         //deleting value from array without changing main array
      const removeItem = state.data.filter((item) => item !== action.payload);
+     
 
      switch (action.type) {
         case types.ADD_ITEM_TO_CART:
           
           if (itemPrice >= 0) {
             state.data[itemPrice].total += 1;
+            // console.log(state.data.length)
+            // basically increase cart-item by 1:- sorted by id;
             return {
               ...state,
               total: state.total + 1,
               data: [...state.data],
-            };
+             };
+             
           } else {
             return {
               ...state,
@@ -30,6 +34,8 @@ const postReducer = (state = initialState, action) => {
               data: [...state.data, temp],
             };
           }
+          
+        
     
         case types.REMOVE_ITEM_FROM_CART:
             //removing item from cart with same id
@@ -50,6 +56,7 @@ const postReducer = (state = initialState, action) => {
         default:
           return { ...state };
       }
+      
  }
     
     export default postReducer;

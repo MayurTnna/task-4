@@ -2,9 +2,19 @@ body{
     background: #494848;
 }
 .card_container{
-    width: 800px;
+    width: 30rem;
     border: 0.1px solid black;
     border-radius: 20px;
     background: #838383;
     margin: auto;
+    margin-top: 20rem;
+ 
 }
+.itemCard_container{
+    margin: auto;
+}
+.item_card{
+     width: 28rem; 
+     height: 9rem;
+      margin: auto ;
+     }
