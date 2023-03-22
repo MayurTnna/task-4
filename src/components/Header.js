@@ -7,8 +7,13 @@ import { useSelector } from "react-redux";
 
 
 
-function Header() {
+function Header({toggleShowCard}) {
+  console.log(toggleShowCard)
   const getData = useSelector((state) => state.data)
+
+  const handleSave = () => {
+    toggleShowCard((show) => !show)
+  }
   // console.log(getData.length)
   return (
     <Navbar bg="dark"  expand="lg" >
@@ -16,7 +21,7 @@ function Header() {
         <Navbar.Brand className="text-white px-5" href="#">My Online Shopping Cart</Navbar.Brand>
         <Navbar.Collapse id="navbarScroll">
           <Form className="px-5   ">
-            <Button  className="px-5 text-white" variant="outline-success">My Cart :- {getData.length}</Button>
+            <Button onClick={handleSave} className="px-5 text-white" variant="outline-success">My Cart :- {getData.length}</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

@@ -12,6 +12,7 @@ function ShoppingCart() {
   return (
     <>
       <div className="card_container bg-dark">
+        <h3 className="text-light float-center">Your Shopping Cart</h3>
         {items && items.map((item) => {
           return(
         <Card
@@ -38,6 +39,7 @@ function ShoppingCart() {
               
             </Card.Subtitle>
             <span className="mx-2 float-start"> x{item.total} </span>
+            <div className="px-2">
             <Button
               className="float-end"
               onClick={() => {
@@ -47,7 +49,8 @@ function ShoppingCart() {
             >
               +
             </Button>
-
+            </div>
+            <div className="px-5">
             <Button
               className="float-end"
               onClick={() => {
@@ -57,6 +60,7 @@ function ShoppingCart() {
             >
               -
             </Button>
+            </div>
           </Card.Body>
         </Card>
     );
